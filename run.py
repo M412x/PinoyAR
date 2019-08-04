@@ -19,8 +19,11 @@ def main():
     os.system('clear')
     banner()
     print ('\033[39m[\033[31m+\033[39m] Processing...\n')
-    raw = (open('list.txt','r').read().split(' '))
-    emails = [data for data in raw if '@' in data]
+    raw = (open('list.txt','r').read())
+    raw1 = ''
+    for r in raw:
+        raw1 += ' '.join(r.split('|'))
+    emails = [data for data in raw1.split(' ') if '@' in data]
     for email in emails:
         try:
             if 'yahoo.com' in email:
@@ -57,6 +60,7 @@ def banner():
 
 if __name__=='__main__':
     main()
+    
     
     
     
